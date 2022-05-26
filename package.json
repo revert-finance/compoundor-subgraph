@@ -3,11 +3,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
-    "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ kalinbas/compoundor-polygon",
-    "create-local": "graph create --node http://localhost:8020/ kalinbas/compoundor-polygon",
-    "remove-local": "graph remove --node http://localhost:8020/ kalinbas/compoundor-polygon",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 kalinbas/compoundor-polygon"
+    "build-mainnet": "graph build --network mainnet",
+    "build-matic": "graph build --network matic",
+    "deploy-mainnet": "graph deploy --product hosted-service kalinbas/compoundor-mainnet",
+    "deploy-matic": "graph deploy --product hosted-service kalinbas/compoundor-polygon"
   },
   "dependencies": {
     "@graphprotocol/graph-ts": "0.27.0"
