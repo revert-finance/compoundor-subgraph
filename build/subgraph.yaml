@@ -1,0 +1,32 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: matic
+    source:
+      address: "0x7D1F9FC22beD0798cDA3Fdb18b14a96fc838B9E1"
+      abi: Contract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - AutoCompounded
+        - BalanceWithdrawn
+        - TokenDeposited
+        - TokenWithdrawn
+      abis:
+        - name: Contract
+          file: Contract/abis/Contract.json
+      eventHandlers:
+        - event: AutoCompounded(address,uint256,uint256,uint256,uint256,uint256,address,address)
+          handler: handleAutoCompounded
+        - event: BalanceWithdrawn(address,address,address,uint256)
+          handler: handleBalanceWithdrawn
+        - event: TokenDeposited(address,uint256)
+          handler: handleTokenDeposited
+        - event: TokenWithdrawn(address,address,uint256)
+          handler: handleTokenWithdrawn
+      file: Contract/Contract.wasm

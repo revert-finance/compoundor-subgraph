@@ -1,0 +1,18 @@
+{
+  "name": "compoundor-polygon",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ kalinbas/compoundor-polygon",
+    "create-local": "graph create --node http://localhost:8020/ kalinbas/compoundor-polygon",
+    "remove-local": "graph remove --node http://localhost:8020/ kalinbas/compoundor-polygon",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 kalinbas/compoundor-polygon"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-ts": "0.27.0"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.30.1"
+  }
+}
