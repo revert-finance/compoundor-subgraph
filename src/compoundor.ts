@@ -13,7 +13,7 @@ export function handleAutoCompounded(event: AutoCompounded): void {
   compound.account = event.transaction.from;
   compound.tokenId = event.params.tokenId
   compound.amountAdded0 = event.params.amountAdded0
-  compound.amountAdded1 = event.params.amountAdded0
+  compound.amountAdded1 = event.params.amountAdded1
   compound.bonus0 = event.params.bonus0
   compound.bonus1 = event.params.bonus1
   compound.token0 = event.params.token0
@@ -32,15 +32,21 @@ export function handleBalanceAdded(event: BalanceAdded): void {
   let balance = AccountBalance.load(key)
   if (!balance) {
     balance = new AccountBalance(key)
+    balance.balance = BigInt.fromI32(0)
+    balance.token = event.params.token
+    balance.account = event.params.account
   }
   balance.balance = balance.balance.plus(event.params.amount);
   balance.save();
 }
 
 export function handleBalanceRemoved(event: BalanceRemoved): void {
-  let balance = new AccountBalance(event.params.account.toHex() + "-" + event.params.token.toHex())
-  balance.balance = balance.balance.minus(event.params.amount);
-  balance.save();
+  let key = event.params.account.toHex() + "-" + event.params.token.toHex()
+  let balance = AccountBalance.load(key)
+  if (balance) {
+    balance.balance = balance.balance.minus(event.params.amount);
+    balance.save();
+  }
 }
 
 export function handleTokenDeposited(event: TokenDeposited): void {

@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: Compoundor
-    network: mainnet
+    network: matic
     source:
       abi: Compoundor
-      address: "0x7D1F9FC22beD0798cDA3Fdb18b14a96fc838B9E1"
-      startBlock: 0
+      address: "0x9B98C7b82Df397becEa74F030d52Ef154D4976De"
+      startBlock: 28842766
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -32,4 +32,4 @@ dataSources:
           handler: handleTokenDeposited
         - event: TokenWithdrawn(address,address,uint256)
           handler: handleTokenWithdrawn
-      file: ./src/compundor.ts
+      file: ./src/compoundor.ts

@@ -5,8 +5,8 @@
     "codegen": "graph codegen",
     "build-mainnet": "graph build --network mainnet",
     "build-matic": "graph build --network matic",
-    "deploy-mainnet": "graph deploy --product hosted-service kalinbas/compoundor-mainnet",
-    "deploy-matic": "graph deploy --product hosted-service kalinbas/compoundor-polygon"
+    "deploy-mainnet": "graph deploy --product hosted-service --network mainnet kalinbas/compoundor-mainnet ",
+    "deploy-matic": "graph deploy --product hosted-service --network matic kalinbas/compoundor-polygon"
   },
   "dependencies": {
     "@graphprotocol/graph-ts": "0.27.0"
