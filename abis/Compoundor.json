@@ -97,6 +97,56 @@
       },
       {
         "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "BalanceAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "BalanceRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": false,
         "internalType": "address",
         "name": "to",
         "type": "address"
@@ -315,7 +365,7 @@
             "type": "uint256"
           },
           {
-            "internalType": "enum IContract.BonusConversion",
+            "internalType": "enum ICompoundor.BonusConversion",
             "name": "bonusConversion",
             "type": "uint8"
           },
@@ -335,7 +385,7 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct IContract.AutoCompoundParams",
+        "internalType": "struct ICompoundor.AutoCompoundParams",
         "name": "params",
         "type": "tuple"
       }
@@ -479,7 +529,7 @@
             "type": "address"
           }
         ],
-        "internalType": "struct IContract.DecreaseLiquidityAndCollectParams",
+        "internalType": "struct ICompoundor.DecreaseLiquidityAndCollectParams",
         "name": "params",
         "type": "tuple"
       }
@@ -687,7 +737,7 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct IContract.SwapAndIncreaseLiquidityParams",
+        "internalType": "struct ICompoundor.SwapAndIncreaseLiquidityParams",
         "name": "params",
         "type": "tuple"
       }
@@ -763,7 +813,7 @@
             "type": "uint256"
           }
         ],
-        "internalType": "struct IContract.SwapAndMintParams",
+        "internalType": "struct ICompoundor.SwapAndMintParams",
         "name": "params",
         "type": "tuple"
       }
@@ -882,14 +932,14 @@
         "type": "address"
       },
       {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
-      },
-      {
         "internalType": "bool",
         "name": "withdrawBalances",
         "type": "bool"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
       }
     ],
     "name": "withdrawToken",

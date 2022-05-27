@@ -56,6 +56,58 @@ export class AutoCompounded__Params {
   }
 }
 
+export class BalanceAdded extends ethereum.Event {
+  get params(): BalanceAdded__Params {
+    return new BalanceAdded__Params(this);
+  }
+}
+
+export class BalanceAdded__Params {
+  _event: BalanceAdded;
+
+  constructor(event: BalanceAdded) {
+    this._event = event;
+  }
+
+  get account(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get token(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get amount(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+}
+
+export class BalanceRemoved extends ethereum.Event {
+  get params(): BalanceRemoved__Params {
+    return new BalanceRemoved__Params(this);
+  }
+}
+
+export class BalanceRemoved__Params {
+  _event: BalanceRemoved;
+
+  constructor(event: BalanceRemoved) {
+    this._event = event;
+  }
+
+  get account(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get token(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get amount(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+}
+
 export class BalanceWithdrawn extends ethereum.Event {
   get params(): BalanceWithdrawn__Params {
     return new BalanceWithdrawn__Params(this);
@@ -204,7 +256,7 @@ export class TokenWithdrawn__Params {
   }
 }
 
-export class Contract__autoCompoundResult {
+export class Compoundor__autoCompoundResult {
   value0: BigInt;
   value1: BigInt;
   value2: BigInt;
@@ -243,7 +295,7 @@ export class Contract__autoCompoundResult {
   }
 }
 
-export class Contract__autoCompoundInputParamsStruct extends ethereum.Tuple {
+export class Compoundor__autoCompoundInputParamsStruct extends ethereum.Tuple {
   get tokenId(): BigInt {
     return this[0].toBigInt();
   }
@@ -265,9 +317,9 @@ export class Contract__autoCompoundInputParamsStruct extends ethereum.Tuple {
   }
 }
 
-export class Contract extends ethereum.SmartContract {
-  static bind(address: Address): Contract {
-    return new Contract("Contract", address);
+export class Compoundor extends ethereum.SmartContract {
+  static bind(address: Address): Compoundor {
+    return new Compoundor("Compoundor", address);
   }
 
   MAX_BONUS_X64(): BigInt {
@@ -390,15 +442,15 @@ export class Contract extends ethereum.SmartContract {
   }
 
   autoCompound(
-    params: Contract__autoCompoundInputParamsStruct
-  ): Contract__autoCompoundResult {
+    params: Compoundor__autoCompoundInputParamsStruct
+  ): Compoundor__autoCompoundResult {
     let result = super.call(
       "autoCompound",
       "autoCompound((uint256,uint8,bool,bool,uint256)):(uint256,uint256,uint256,uint256)",
       [ethereum.Value.fromTuple(params)]
     );
 
-    return new Contract__autoCompoundResult(
+    return new Compoundor__autoCompoundResult(
       result[0].toBigInt(),
       result[1].toBigInt(),
       result[2].toBigInt(),
@@ -407,8 +459,8 @@ export class Contract extends ethereum.SmartContract {
   }
 
   try_autoCompound(
-    params: Contract__autoCompoundInputParamsStruct
-  ): ethereum.CallResult<Contract__autoCompoundResult> {
+    params: Compoundor__autoCompoundInputParamsStruct
+  ): ethereum.CallResult<Compoundor__autoCompoundResult> {
     let result = super.tryCall(
       "autoCompound",
       "autoCompound((uint256,uint8,bool,bool,uint256)):(uint256,uint256,uint256,uint256)",
@@ -419,7 +471,7 @@ export class Contract extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new Contract__autoCompoundResult(
+      new Compoundor__autoCompoundResult(
         value[0].toBigInt(),
         value[1].toBigInt(),
         value[2].toBigInt(),
@@ -1320,12 +1372,12 @@ export class WithdrawTokenCall__Inputs {
     return this._call.inputValues[1].value.toAddress();
   }
 
-  get data(): Bytes {
-    return this._call.inputValues[2].value.toBytes();
+  get withdrawBalances(): boolean {
+    return this._call.inputValues[2].value.toBoolean();
   }
 
-  get withdrawBalances(): boolean {
-    return this._call.inputValues[3].value.toBoolean();
+  get data(): Bytes {
+    return this._call.inputValues[3].value.toBytes();
   }
 }
 

@@ -1,12 +1,12 @@
 {
   "matic": {
-    "Contract": {
+    "Compoundor": {
       "address": "0x7D1F9FC22beD0798cDA3Fdb18b14a96fc838B9E1",
       "startBlock": 0
     }
   },
   "mainnet": {
-    "Contract": {
+    "Compoundor": {
       "address": "0x7D1F9FC22beD0798cDA3Fdb18b14a96fc838B9E1",
       "startBlock": 0
     }

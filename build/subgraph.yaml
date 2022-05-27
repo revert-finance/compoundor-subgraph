@@ -3,10 +3,10 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum
-    name: Contract
+    name: Compoundor
     network: mainnet
     source:
-      abi: Contract
+      abi: Compoundor
       address: "0x7D1F9FC22beD0798cDA3Fdb18b14a96fc838B9E1"
       startBlock: 0
     mapping:
@@ -19,15 +19,17 @@ dataSources:
         - TokenDeposited
         - TokenWithdrawn
       abis:
-        - name: Contract
-          file: Contract/abis/Contract.json
+        - name: Compoundor
+          file: Compoundor/abis/Compoundor.json
       eventHandlers:
         - event: AutoCompounded(address,uint256,uint256,uint256,uint256,uint256,address,address)
           handler: handleAutoCompounded
-        - event: BalanceWithdrawn(address,address,address,uint256)
-          handler: handleBalanceWithdrawn
+        - event: BalanceAdded(address,address,uint256)
+          handler: handleBalanceAdded
+        - event: BalanceRemoved(address,address,uint256)
+          handler: handleBalanceRemoved
         - event: TokenDeposited(address,uint256)
           handler: handleTokenDeposited
         - event: TokenWithdrawn(address,address,uint256)
           handler: handleTokenWithdrawn
-      file: Contract/Contract.wasm
+      file: Compoundor/Compoundor.wasm

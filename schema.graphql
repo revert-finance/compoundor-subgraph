@@ -1,6 +1,27 @@
-type ExampleEntity @entity {
+type AccountBalance @entity {
   id: ID!
-  count: BigInt!
-  account: Bytes! # address
-  tokenId: BigInt! # uint256
+  account: Bytes!
+  token: Bytes!
+  balance: BigInt!
+}
+
+type Token @entity {
+  #tokenid
+  id: ID!
+  account: Bytes
+  compoundCount: Int
+  compounded0: BigInt!
+  compounded1: BigInt!
+}
+
+type Compound @entity {
+  id: ID!
+  account: Bytes!
+  tokenId: BigInt!
+  amountAdded0: BigInt!
+  amountAdded1: BigInt!
+  bonus0: BigInt!
+  bonus1: BigInt!
+  token0: Bytes!
+  token1: Bytes!
 }
