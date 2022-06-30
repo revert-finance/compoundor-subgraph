@@ -7,8 +7,8 @@ dataSources:
     network: matic
     source:
       abi: Compoundor
-      address: "0x9B98C7b82Df397becEa74F030d52Ef154D4976De"
-      startBlock: 28842766
+      address: "0x7f48e62386C51880415EF814b9abfddf3ee5fDe0"
+      startBlock: 30181751
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5

@@ -1,13 +1,25 @@
 {
   "matic": {
     "Compoundor": {
-      "address": "0x9B98C7b82Df397becEa74F030d52Ef154D4976De",
-      "startBlock": 28842766 
+      "address": "0x7f48e62386C51880415EF814b9abfddf3ee5fDe0",
+      "startBlock": 30181751 
     }
   },
   "mainnet": {
     "Compoundor": {
-      "address": "0x9B98C7b82Df397becEa74F030d52Ef154D4976De",
+      "address": "...",
+      "startBlock": 0
+    }
+  },
+  "arbitrum-one": {
+    "Compoundor": {
+      "address": "...",
+      "startBlock": 0
+    }
+  },
+  "optimism": {
+    "Compoundor": {
+      "address": "...",
       "startBlock": 0
     }
   }
