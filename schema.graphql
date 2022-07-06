@@ -20,8 +20,8 @@ type Compound @entity {
   tokenId: BigInt!
   amountAdded0: BigInt!
   amountAdded1: BigInt!
-  bonus0: BigInt!
-  bonus1: BigInt!
+  reward0: BigInt!
+  reward1: BigInt!
   token0: Bytes!
   token1: Bytes!
 }

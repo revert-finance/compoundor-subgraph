@@ -55,13 +55,13 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "bonus0",
+        "name": "reward0",
         "type": "uint256"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "bonus1",
+        "name": "reward1",
         "type": "uint256"
       },
       {
@@ -165,31 +165,6 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint64",
-        "name": "totalBonusX64",
-        "type": "uint64"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint64",
-        "name": "compounderBonusX64",
-        "type": "uint64"
-      }
-    ],
-    "name": "BonusUpdated",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
         "indexed": true,
         "internalType": "address",
         "name": "previousOwner",
@@ -203,6 +178,31 @@
       }
     ],
     "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "totalRewardX64",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "compounderRewardX64",
+        "type": "uint64"
+      }
+    ],
+    "name": "RewardUpdated",
     "type": "event"
   },
   {
@@ -276,12 +276,12 @@
   },
   {
     "inputs": [],
-    "name": "MAX_BONUS_X64",
+    "name": "MAX_POSITIONS_PER_ADDRESS",
     "outputs": [
       {
-        "internalType": "uint64",
+        "internalType": "uint32",
         "name": "",
-        "type": "uint64"
+        "type": "uint32"
       }
     ],
     "stateMutability": "view",
@@ -289,12 +289,12 @@
   },
   {
     "inputs": [],
-    "name": "MAX_POSITIONS_PER_ADDRESS",
+    "name": "MAX_REWARD_X64",
     "outputs": [
       {
-        "internalType": "uint32",
+        "internalType": "uint64",
         "name": "",
-        "type": "uint32"
+        "type": "uint64"
       }
     ],
     "stateMutability": "view",
@@ -371,13 +371,13 @@
             "type": "uint256"
           },
           {
-            "internalType": "enum ICompoundor.BonusConversion",
-            "name": "bonusConversion",
+            "internalType": "enum ICompoundor.RewardConversion",
+            "name": "rewardConversion",
             "type": "uint8"
           },
           {
             "internalType": "bool",
-            "name": "withdrawBonus",
+            "name": "withdrawReward",
             "type": "bool"
           },
           {
@@ -395,12 +395,12 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "bonus0",
+        "name": "reward0",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "bonus1",
+        "name": "reward1",
         "type": "uint256"
       },
       {
@@ -484,7 +484,7 @@
   },
   {
     "inputs": [],
-    "name": "compounderBonusX64",
+    "name": "compounderRewardX64",
     "outputs": [
       {
         "internalType": "uint64",
@@ -686,16 +686,16 @@
     "inputs": [
       {
         "internalType": "uint64",
-        "name": "_totalBonusX64",
+        "name": "_totalRewardX64",
         "type": "uint64"
       },
       {
         "internalType": "uint64",
-        "name": "_compounderBonusX64",
+        "name": "_compounderRewardX64",
         "type": "uint64"
       }
     ],
-    "name": "setBonus",
+    "name": "setReward",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -733,7 +733,7 @@
   },
   {
     "inputs": [],
-    "name": "totalBonusX64",
+    "name": "totalRewardX64",
     "outputs": [
       {
         "internalType": "uint64",

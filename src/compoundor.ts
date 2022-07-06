@@ -14,8 +14,8 @@ export function handleAutoCompounded(event: AutoCompounded): void {
   compound.tokenId = event.params.tokenId
   compound.amountAdded0 = event.params.amountAdded0
   compound.amountAdded1 = event.params.amountAdded1
-  compound.bonus0 = event.params.bonus0
-  compound.bonus1 = event.params.bonus1
+  compound.reward0 = event.params.reward0
+  compound.reward1 = event.params.reward1
   compound.token0 = event.params.token0
   compound.token1 = event.params.token1
   compound.save()
