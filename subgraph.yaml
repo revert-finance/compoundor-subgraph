@@ -4,20 +4,19 @@ schema:
 dataSources:
   - kind: ethereum
     name: Compoundor
-    network: matic
+    network: optimism
     source:
       abi: Compoundor
-      address: "0xe3159fc9e26b76de780d7fa1282c438548ba4e09"
-      startBlock: 30181751
+      address: "0x5411894842e610C4D0F6Ed4C232DA689400f94A1"
+      startBlock: 14350137
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - AutoCompounded
-        - BalanceWithdrawn
-        - TokenDeposited
-        - TokenWithdrawn
+        - AccountBalance
+        - Token
+        - Compound
       abis:
         - name: Compoundor
           file: ./abis/Compoundor.json
