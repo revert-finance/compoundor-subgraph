@@ -12,10 +12,31 @@ type Token @entity {
   compoundCount: Int
   compounded0: BigInt!
   compounded1: BigInt!
+  currentSession: CompoundSession
+  sessions: [CompoundSession!]! @derivedFrom(field: "token")
+}
+
+type CompoundSession @entity {
+  id: ID!
+  startBlockNumber: BigInt!
+  endBlockNumber: BigInt
+  startTimestamp: BigInt!
+  endTimestamp: BigInt
+  account: Bytes!
+  token: Token!
+  compoundCount: Int!
+  amountAdded0: BigInt!
+  amountAdded1: BigInt!
+  reward0: BigInt!
+  reward1: BigInt!
+  compounds: [Compound!]! @derivedFrom(field: "session")
 }
 
 type Compound @entity {
   id: ID!
+  txHash: Bytes!
+  blockNumber: BigInt!
+  timestamp: BigInt
   account: Bytes!
   tokenId: BigInt!
   amountAdded0: BigInt!
@@ -24,4 +45,6 @@ type Compound @entity {
   reward1: BigInt!
   token0: Bytes!
   token1: Bytes!
+  isOwner: Boolean!
+  session: CompoundSession!
 }

@@ -17,6 +17,7 @@ dataSources:
         - AccountBalance
         - Token
         - Compound
+        - CompoundSession
       abis:
         - name: Compoundor
           file: ./abis/Compoundor.json
