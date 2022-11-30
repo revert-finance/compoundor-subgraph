@@ -74,7 +74,7 @@ export function handleTokenDeposited(event: TokenDeposited): void {
   let session = new CompoundSession(event.params.tokenId.toString() + "-" + event.transaction.hash.toHex() + "-" + event.transactionLogIndex.toString())
   session.startBlockNumber = event.block.number
   session.startTimestamp = event.block.timestamp
-  session.account = event.transaction.from
+  session.account = event.params.account
   session.token = token.id
   session.compoundCount = 0
   session.amountAdded0 = BigInt.fromI32(0)
