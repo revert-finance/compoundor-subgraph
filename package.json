@@ -7,10 +7,12 @@
     "build-matic": "graph build --network matic",
     "build-arbitrum": "graph build --network arbitrum-one",
     "build-optimism": "graph build --network optimism",
+    "build-bsc": "graph build --network bsc",
     "deploy-mainnet": "graph deploy --product hosted-service --network mainnet revert-finance/compoundor-mainnet",
     "deploy-matic": "graph deploy --product hosted-service --network matic revert-finance/compoundor-polygon",
     "deploy-arbitrum": "graph deploy --product hosted-service --network arbitrum-one revert-finance/compoundor-arbitrum",
-    "deploy-optimism": "graph deploy --product hosted-service --network optimism revert-finance/compoundor-optimism"
+    "deploy-optimism": "graph deploy --product hosted-service --network optimism revert-finance/compoundor-optimism",
+    "deploy-bsc": "graph deploy --product hosted-service --network bsc revert-finance/compoundor-bnb"
   },
   "dependencies": {
     "@graphprotocol/graph-ts": "0.27.0"
