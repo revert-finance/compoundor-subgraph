@@ -28,5 +28,11 @@
       "address": "0x98eC492942090364AC0736Ef1A741AE6C92ec790",
       "startBlock": 26493597
     }
+  },
+  "evmos": {
+    "Compoundor": {
+      "address": "0x013573fa9fAF879DB49855aDdF10653F46903419",
+      "startBlock": 13024461
+    }
   }
 }
