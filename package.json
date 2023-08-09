@@ -9,12 +9,14 @@
     "build-optimism": "graph build --network optimism",
     "build-bsc": "graph build --network bsc",
     "build-evmos": "graph build --network evmos",
+    "build-base": "graph build --network base",
     "deploy-mainnet": "graph deploy --product hosted-service --network mainnet revert-finance/compoundor-mainnet",
     "deploy-matic": "graph deploy --product hosted-service --network matic revert-finance/compoundor-polygon",
     "deploy-arbitrum": "graph deploy --product hosted-service --network arbitrum-one revert-finance/compoundor-arbitrum",
     "deploy-optimism": "graph deploy --product hosted-service --network optimism revert-finance/compoundor-optimism",
     "deploy-bsc": "graph deploy --product hosted-service --network bsc revert-finance/compoundor-bnb",
-    "deploy-evmos": "graph deploy compoundor-evmos --version-label v0.0.1 --node https://app.satsuma.xyz/api/subgraphs/deploy --deploy-key ..."
+    "deploy-evmos": "graph deploy compoundor-evmos --version-label v0.0.1 --node https://app.satsuma.xyz/api/subgraphs/deploy --deploy-key ...",
+    "deploy-base": "graph deploy --product hosted-service --network base kalinbas/compoundor-base"
   },
   "dependencies": {
     "@graphprotocol/graph-ts": "0.27.0"

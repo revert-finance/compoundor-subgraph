@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: Compoundor
-    network: optimism
+    network: base
     source:
       abi: Compoundor
-      address: "0x5411894842e610C4D0F6Ed4C232DA689400f94A1"
-      startBlock: 14350137
+      address: "0x4a8c2bdf0d8d2473b985f869815d9caa36a57ee4"
+      startBlock: 2401082
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5

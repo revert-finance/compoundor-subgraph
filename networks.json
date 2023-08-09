@@ -34,5 +34,11 @@
       "address": "0x013573fa9fAF879DB49855aDdF10653F46903419",
       "startBlock": 13024461
     }
+  },
+  "base": {
+    "Compoundor": {
+      "address": "0x4a8c2bdf0d8d2473b985f869815d9caa36a57ee4",
+      "startBlock": 2401082
+    }
   }
 }
