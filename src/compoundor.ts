@@ -73,7 +73,7 @@ export function handleAutoCompounded3(event: AutoCompounded3): void {
   compound.reward1 = event.params.reward1
   compound.token0 = event.params.token0
   compound.token1 = event.params.token1
-  compound.isOwner = event.transaction.from.toHex() == token.account!.toHex()
+  compound.isOwner = false
   compound.version = 3
   compound.save()
 }
