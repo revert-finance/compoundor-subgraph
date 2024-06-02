@@ -3,30 +3,70 @@
     "Compoundor": {
       "address": "0x5411894842e610C4D0F6Ed4C232DA689400f94A1",
       "startBlock": 30655160 
+    },
+    "AutoCompound3": {
+      "address": "0xf887e57ad9114bb31c7506890efc181f355e9783",
+      "startBlock": 57495278
+    },
+    "NonfungiblePositionManager": {
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "startBlock": 57495278
     }
   },
   "mainnet": {
     "Compoundor": {
       "address": "0x5411894842e610C4D0F6Ed4C232DA689400f94A1",
       "startBlock": 15130021
+    },
+    "AutoCompound3": {
+      "address": "0x7c81247ae0a35b03e3f4a704dcd6b101dca53abd",
+      "startBlock": 19969939
+    },
+    "NonfungiblePositionManager": {
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "startBlock": 19969939
     }
   },
   "arbitrum-one": {
     "Compoundor": {
       "address": "0x5411894842e610C4D0F6Ed4C232DA689400f94A1",
       "startBlock": 17508937
+    },
+    "AutoCompound3": {
+      "address": "0x9d97c76102e72883cd25fa60e0f4143516d5b6db",
+      "startBlock": 215703868
+    },
+    "NonfungiblePositionManager": {
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "startBlock": 215703868
     }
   },
   "optimism": {
     "Compoundor": {
       "address": "0x5411894842e610C4D0F6Ed4C232DA689400f94A1",
       "startBlock": 14350137
+    },
+    "AutoCompound3": {
+      "address": "0xbe931744bf0b4c4c580d375de04ee7fc2f52c568",
+      "startBlock": 120657093
+    },
+    "NonfungiblePositionManager": {
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "startBlock": 120657093
     }
   },
   "bsc": {
     "Compoundor": {
       "address": "0x98eC492942090364AC0736Ef1A741AE6C92ec790",
       "startBlock": 26493597
+    },
+    "AutoCompound3": {
+      "address": "0x843fe45972f638a2e7065b8d8b54efcfed09b72b",
+      "startBlock": 39122402
+    },
+    "NonfungiblePositionManager": {
+      "address": "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613",
+      "startBlock": 39122402
     }
   },
   "evmos": {
@@ -39,6 +79,14 @@
     "Compoundor": {
       "address": "0x4a8c2bdf0d8d2473b985f869815d9caa36a57ee4",
       "startBlock": 2401082
+    },
+    "AutoCompound3": {
+      "address": "0x0bf485bd7ebb82e282f72e7d14822c680e3f7bec",
+      "startBlock": 15062403
+    },
+    "NonfungiblePositionManager": {
+      "address": "0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1",
+      "startBlock": 15062403
     }
   }
 }

@@ -1,14 +1,19 @@
 specVersion: 0.0.4
 schema:
   file: ./schema.graphql
+features:
+  - grafting
+graft:
+  base: QmXsVikysyETVnmApH7M2DwKDZZLyvFxiEwj7AUEVun9cF
+  block: 215705380
 dataSources:
   - kind: ethereum
     name: Compoundor
-    network: bsc
+    network: arbitrum-one
     source:
       abi: Compoundor
-      address: "0x317202b11add82232d06bc13892cd22e38d505d3"
-      startBlock: 31339735
+      address: "0x5411894842e610C4D0F6Ed4C232DA689400f94A1"
+      startBlock: 17508937
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -32,4 +37,53 @@ dataSources:
           handler: handleTokenDeposited
         - event: TokenWithdrawn(address,address,uint256)
           handler: handleTokenWithdrawn
+      file: ./src/compoundor.ts
+  - kind: ethereum
+    name: AutoCompound3
+    network: arbitrum-one
+    source:
+      abi: AutoCompound3
+      address: "0x9d97c76102e72883cd25fa60e0f4143516d5b6db"
+      startBlock: 215703868
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - AccountBalance
+        - Token
+        - Compound
+        - CompoundSession
+      abis:
+        - name: AutoCompound3
+          file: ./abis/AutoCompound3.json
+      eventHandlers:
+        - event: AutoCompounded(address,uint256,uint256,uint256,uint256,uint256,address,address)
+          handler: handleAutoCompounded3
+        - event: BalanceAdded(uint256,address,uint256)
+          handler: handleBalanceAdded3
+        - event: BalanceRemoved(uint256,address,uint256)
+          handler: handleBalanceRemoved3
+      file: ./src/compoundor.ts
+  - kind: ethereum
+    name: NonfungiblePositionManager
+    network: arbitrum-one
+    source:
+      abi: NonfungiblePositionManager
+      address: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88"
+      startBlock: 215703868
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Operation
+        - Token
+        - Account
+      abis:
+        - name: NonfungiblePositionManager
+          file: ./abis/NonfungiblePositionManager.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
       file: ./src/compoundor.ts
