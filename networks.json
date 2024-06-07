@@ -6,11 +6,11 @@
     },
     "AutoCompound3": {
       "address": "0xf887e57ad9114bb31c7506890efc181f355e9783",
-      "startBlock": 57495278
+      "startBlock": 57495319
     },
     "NonfungiblePositionManager": {
       "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
-      "startBlock": 57495278
+      "startBlock": 57495319
     }
   },
   "mainnet": {
