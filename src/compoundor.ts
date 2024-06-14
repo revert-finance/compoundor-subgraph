@@ -56,6 +56,7 @@ export function handleAutoCompounded(event: AutoCompounded): void {
 export function handleAutoCompounded3(event: AutoCompounded3): void {
 
   let token = Token.load(event.params.tokenId.toString())!
+
   token.compoundCount++
   token.compounded0 = token.compounded0.plus(event.params.amountAdded0)
   token.compounded1 = token.compounded1.plus(event.params.amountAdded1)
@@ -172,12 +173,25 @@ export function handleApproval(event: Approval): void {
     } else {
       approval.approved = true
     }
+    approval.owner = event.params.owner
     approval.save()
+
+    let token = Token.load(event.params.tokenId.toString())
+    if (!token) {
+      token = new Token(event.params.tokenId.toString())    
+      token.compoundCount = 0
+      token.compounded0 = BigInt.fromI32(0)
+      token.compounded1 = BigInt.fromI32(0)
+    }
+    token.account = event.params.owner
+    token.save()
+  
 
     let approvalSnapshot = new TokenApprovalSnapshot(event.transaction.hash.toHex() + "-" + event.logIndex.toString())
     approvalSnapshot.approved = true;
     approvalSnapshot.tokenId = event.params.tokenId
     approvalSnapshot.timestamp = event.block.timestamp
+    approvalSnapshot.owner = event.params.owner
     approvalSnapshot.save()
   } else {
     if (approval && approval.approved) {
@@ -185,10 +199,17 @@ export function handleApproval(event: Approval): void {
       approvalSnapshot.approved = false;
       approvalSnapshot.tokenId = event.params.tokenId
       approvalSnapshot.timestamp = event.block.timestamp
+      approvalSnapshot.owner = event.params.owner
       approvalSnapshot.save()
 
       approval.approved = false;
       approval.save()
+
+      let token = Token.load(event.params.tokenId.toString())
+      if (token) {
+        token.account = null
+        token.save()
+      }
     }
-  }  
+  }
 }

@@ -4,7 +4,7 @@ schema:
 features:
   - grafting
 graft:
-  base: QmU13XrpbMmXpiBkRj2UFWPaxHbuBdRbiLV9DvU2pV3dyD
+  base: QmWRzcHZRwgJGCtSiW1pGLs6aVYnYKeEeVBcke2jQ7qp2Q
   block: 39122402
 dataSources:
   - kind: ethereum
@@ -12,8 +12,8 @@ dataSources:
     network: bsc
     source:
       abi: Compoundor
-      address: "0x317202b11add82232d06bc13892cd22e38d505d3"
-      startBlock: 31339735
+      address: "0x98eC492942090364AC0736Ef1A741AE6C92ec790"
+      startBlock: 26493597
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -43,7 +43,7 @@ dataSources:
     network: bsc
     source:
       abi: AutoCompound3
-      address: "0x3b1767957d08ddc60493d35d812c66e2d52bd875"
+      address: "0x843fe45972f638a2e7065b8d8b54efcfed09b72b"
       startBlock: 39122402
     mapping:
       kind: ethereum/events
@@ -70,7 +70,7 @@ dataSources:
     network: bsc
     source:
       abi: NonfungiblePositionManager
-      address: "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"
+      address: "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613"
       startBlock: 39122402
     mapping:
       kind: ethereum/events

@@ -9,6 +9,7 @@ type TokenApproval @entity {
    id: ID!
    tokenId: BigInt!
    approved: Boolean!
+   owner: Bytes
 }
 
 type TokenApprovalSnapshot @entity {
@@ -16,6 +17,7 @@ type TokenApprovalSnapshot @entity {
    tokenId: BigInt!
    approved: Boolean!
    timestamp: BigInt!
+   owner: Bytes
 }
 
 type TokenBalance @entity {
