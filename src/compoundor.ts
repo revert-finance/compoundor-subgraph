@@ -55,12 +55,13 @@ export function handleAutoCompounded(event: AutoCompounded): void {
 
 export function handleAutoCompounded3(event: AutoCompounded3): void {
 
-  let token = Token.load(event.params.tokenId.toString())!
-
-  token.compoundCount++
-  token.compounded0 = token.compounded0.plus(event.params.amountAdded0)
-  token.compounded1 = token.compounded1.plus(event.params.amountAdded1)
-  token.save()
+  let token = Token.load(event.params.tokenId.toString())
+  if (token) {
+    token.compoundCount++
+    token.compounded0 = token.compounded0.plus(event.params.amountAdded0)
+    token.compounded1 = token.compounded1.plus(event.params.amountAdded1)
+    token.save()
+  }
 
   let compound = new Compound(event.transaction.hash.toHex() + "-" + event.logIndex.toString())
   compound.blockNumber = event.block.number
@@ -148,19 +149,20 @@ export function handleTokenDeposited(event: TokenDeposited): void {
 }
 
 export function handleTokenWithdrawn(event: TokenWithdrawn): void {
-  let token = Token.load(event.params.tokenId.toString())!
-
-  let session = CompoundSession.load(token.currentSession!)!
-  session.endBlockNumber = event.block.number
-  session.endTimestamp = event.block.timestamp;
-  session.save()
-
-  token.account = null
-  token.currentSession = null
-  token.compoundCount = 0
-  token.compounded0 = BigInt.fromI32(0)
-  token.compounded1 = BigInt.fromI32(0)
-  token.save()  
+  let token = Token.load(event.params.tokenId.toString())
+  if (token) {
+    let session = CompoundSession.load(token.currentSession!)!
+    session.endBlockNumber = event.block.number
+    session.endTimestamp = event.block.timestamp;
+    session.save()
+  
+    token.account = null
+    token.currentSession = null
+    token.compoundCount = 0
+    token.compounded0 = BigInt.fromI32(0)
+    token.compounded1 = BigInt.fromI32(0)
+    token.save()  
+  }
 }
 
 export function handleApproval(event: Approval): void {
